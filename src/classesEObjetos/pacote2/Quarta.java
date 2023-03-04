@@ -1,6 +1,6 @@
-package classesEObjetos.modificadoresDeAcesso2;
+package classesEObjetos.pacote2;
 
-import classesEObjetos.modificadoresDeAcesso.Primeira;
+import classesEObjetos.pacote1.Primeira;
 
 public class Quarta extends Primeira {
 
