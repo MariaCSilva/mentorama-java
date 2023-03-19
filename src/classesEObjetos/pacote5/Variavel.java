@@ -7,6 +7,8 @@ public class Variavel {
         variavel.manipularInteiro();
         variavel.converterIntLong();
         variavel.converterCastLongInt();
+        variavel.converterIntDouble();
+        variavel.converterCastDoubleLong();
     }
 
     public void tipoInteiro(){
@@ -55,5 +57,19 @@ public class Variavel {
         System.out.println(valorLong);
         int valorInt = (int)valorLong;
         System.out.println(valorInt);
+    }
+
+    public void converterIntDouble(){
+        int valorInt = 12;
+        System.out.println(valorInt);
+        double valorDouble = valorInt;
+        System.out.println(valorDouble);
+    }
+
+    public void converterCastDoubleLong(){
+        double valorDouble = 10;
+        System.out.println(valorDouble);
+        long valorLong = (long)valorDouble;
+        System.out.println(valorLong);
     }
 }
