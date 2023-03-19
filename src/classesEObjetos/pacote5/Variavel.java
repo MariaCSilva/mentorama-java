@@ -3,6 +3,7 @@ package classesEObjetos.pacote5;
 public class Variavel {
     public static void main(String[] args){
         Variavel variavel =  new Variavel();
+        variavel.tipoInteiro();
         variavel.manipularDouble();
         variavel.manipularInteiro();
         variavel.converterIntLong();
@@ -11,6 +12,7 @@ public class Variavel {
         variavel.converterCastDoubleLong();
         variavel.tipoTexto();
         variavel.manipularString();
+        variavel.operadorMod();
     }
 
     public void tipoInteiro(){
@@ -118,5 +120,12 @@ public class Variavel {
 
         System.out.println(texto.substring(1,4));
 
+        System.out.println("Carro " + "Veloz");
+        System.out.println("Carro ".concat("Veloz") );
+
+    }
+
+    public void operadorMod(){
+        System.out.println(5 % 2); //5 mod 2
     }
 }
