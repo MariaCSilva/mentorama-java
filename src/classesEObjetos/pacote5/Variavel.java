@@ -9,6 +9,7 @@ public class Variavel {
         variavel.converterCastLongInt();
         variavel.converterIntDouble();
         variavel.converterCastDoubleLong();
+        variavel.tipoTexto();
     }
 
     public void tipoInteiro(){
@@ -53,7 +54,7 @@ public class Variavel {
         System.out.println(valorInt);
     }
     public void converterCastLongInt(){
-        long valorLong = 12L;
+        long valorLong = 12;
         System.out.println(valorLong);
         int valorInt = (int)valorLong;
         System.out.println(valorInt);
@@ -71,5 +72,19 @@ public class Variavel {
         System.out.println(valorDouble);
         long valorLong = (long)valorDouble;
         System.out.println(valorLong);
+    }
+
+    public void tipoTexto(){
+        char vetores[] = {'M', 'e','n'};
+        String texto = String.valueOf(vetores);
+        System.out.println(texto);
+
+        long longConvertido = 12;
+        String valor = String.valueOf(longConvertido);
+
+        System.out.println(valor);
+        Double valorDouble = Double.valueOf(valor);
+        System.out.println(valorDouble);
+
     }
 }
