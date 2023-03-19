@@ -10,6 +10,7 @@ public class Variavel {
         variavel.converterIntDouble();
         variavel.converterCastDoubleLong();
         variavel.tipoTexto();
+        variavel.manipularString();
     }
 
     public void tipoInteiro(){
@@ -85,6 +86,37 @@ public class Variavel {
         System.out.println(valor);
         Double valorDouble = Double.valueOf(valor);
         System.out.println(valorDouble);
+
+    }
+
+    public void manipularString(){
+        String texto = "Mentorama - Java - Curso = Maio";
+        String texto1 = "Mentorama - JAVA";
+        String vazia = "";
+        System.out.println(texto.charAt(1));
+        System.out.println(texto.compareTo(texto1));
+        System.out.println(texto.compareToIgnoreCase(texto1));
+        System.out.println(texto.equals(texto1));
+        System.out.println(texto.equalsIgnoreCase(texto1));
+        System.out.println(texto.startsWith("Men"));
+        System.out.println(texto1.endsWith("JAVA"));
+        String[] textos = texto.split("-");
+        for (String t : textos){
+            System.out.println(t);
+        }
+
+        for (String t : textos){
+            System.out.println(t.toUpperCase());
+        }
+
+        for (String t : textos){
+            System.out.println(t.trim());
+        }
+
+        System.out.println(texto.isEmpty());
+        System.out.println(vazia.isEmpty());
+
+        System.out.println(texto.substring(1,4));
 
     }
 }
