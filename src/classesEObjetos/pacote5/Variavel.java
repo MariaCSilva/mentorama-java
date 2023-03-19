@@ -13,6 +13,7 @@ public class Variavel {
         variavel.tipoTexto();
         variavel.manipularString();
         variavel.operadorMod();
+        variavel.utilizarEnum();
     }
 
     public void tipoInteiro(){
@@ -127,5 +128,9 @@ public class Variavel {
 
     public void operadorMod(){
         System.out.println(5 % 2); //5 mod 2
+    }
+
+    public void utilizarEnum(){
+        System.out.println(Cores.VERMELHO.getTexto());
     }
 }
