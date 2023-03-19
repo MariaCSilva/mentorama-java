@@ -1,4 +1,4 @@
-package classesEObjetos.pacote5;
+package Variaveis;
 
 public class Variavel {
     public static void main(String[] args){

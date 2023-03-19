@@ -1,4 +1,4 @@
-package classesEObjetos.pacote5;
+package Variaveis;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

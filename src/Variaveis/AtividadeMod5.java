@@ -1,4 +1,4 @@
-package classesEObjetos.pacote5;
+package Variaveis;
 
 public class AtividadeMod5 {
     public static void main(String[] args){

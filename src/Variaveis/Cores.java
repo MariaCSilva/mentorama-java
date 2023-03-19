@@ -1,4 +1,4 @@
-package classesEObjetos.pacote5;
+package Variaveis;
 
 public enum Cores {
     VERMELHO("Vermelho"), AZUL("Azul"), AMARELO("Amarelo"), VERDE("Verde");
