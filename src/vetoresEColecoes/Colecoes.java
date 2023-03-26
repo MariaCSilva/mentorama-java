@@ -4,10 +4,11 @@ import java.util.*;
 
 public class Colecoes {
     public static void main(String[] args) {
-        arrayList();
-        linkedList();
-        hashSet();
-        manipularArrays();
+        //arrayList();
+       // linkedList();
+       // hashSet();
+       // manipularArrays();
+        manipularMatrizes();
     }
 
     public static void arrayList(){
@@ -77,5 +78,26 @@ public class Colecoes {
         for (int i = 0; i < valoresReverso.length; i++ ){
             System.out.println(valoresReverso[i]);
         }
+    }
+
+    public static void manipularMatrizes(){
+        System.out.println("Manipulando matrizes");
+        int[][] calendario = new int[5][7];
+
+        int dia = 0;
+        for (int i = 0; i< 5; i++){
+            for (int x = 0; x < 7; x++){
+                dia++;
+                calendario[i][x] = dia;
+            }
+        }
+
+        for (int i = 0; i < calendario.length; i++){
+            for (int x = 0; x < calendario[i].length; x++){
+                System.out.print(calendario[i][x]);
+            }
+            System.out.println("");
+        }
+
     }
 }
