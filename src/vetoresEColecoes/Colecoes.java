@@ -4,11 +4,13 @@ import java.util.*;
 
 public class Colecoes {
     public static void main(String[] args) {
-        //arrayList();
-       // linkedList();
-       // hashSet();
-       // manipularArrays();
+        arrayList();
+        linkedList();
+        hashSet();
+        manipularArrays();
         manipularMatrizes();
+        hashMap();
+        treeMap();
     }
 
     public static void arrayList(){
@@ -27,6 +29,17 @@ public class Colecoes {
         System.out.println("HashSet usando a Interface set");
         Set<String> set = new HashSet<>();
         manipularSet(set);
+    }
+    public static void hashMap(){
+        System.out.println("HashMap usando a Interface Map");
+        Map<String, String> map = new HashMap();
+        manipularMap(map);
+    }
+
+    public static void treeMap(){
+        System.out.println("TreeMap usando a Interface Map");
+        Map<String, String> map = new TreeMap<>();
+        manipularMap(map);
     }
 
     public static void manipularLista(List<String> colecao){
@@ -57,6 +70,14 @@ public class Colecoes {
         for (String veiculo: colecao){
             System.out.println(veiculo);
         }
+    }
+
+    public static void manipularMap(Map<String, String> map){
+        map.put("C", "Carro");
+        map.put("M", "Moto");
+        map.put("B", "Bicicleta");
+        System.out.println(map.get("C"));
+
     }
 
     public static void manipularArrays(){
