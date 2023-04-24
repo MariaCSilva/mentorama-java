@@ -1,46 +1,63 @@
 package vetoresEColecoes.atividadeMod6;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+
+import java.util.*;
 
 public class Diario {
-    private Date data;
-    private List<Presenca> presencas;
+   private Map<String, Aluno> alunos;
+   private Map<String,List<String>> presencas;
 
-    public Diario(Date data) {
-        this.data = data;
-        this.presencas = new ArrayList<>();
+   private Map<Date, Map<String,List<String>>> diario;
+
+    public Diario() {
+        this.alunos = new HashMap<>();
+        this.presencas = new HashMap<>();
+        this.diario = new HashMap<>();
     }
 
-    public List<Presenca> getPresencas() {
-        return presencas;
+    public Map<String, Aluno> getAlunos() {
+        return alunos;
     }
 
-    public void addPresenca(Presenca presenca) {
-        presencas.add(presenca);
+    public void adicionarAluno (Aluno aluno) {
+        this.alunos.put(aluno.getCodigo(), aluno);
     }
 
-    public Date getData() {
-        return data;
+    public Map<Date, Map<String,List<String>>> getDiario() {
+        return diario;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void adicionarPresenca(Date data, String presenca, Aluno aluno ) {
+        if(this.presencas.get(aluno.getCodigo()) == null){
+            this.presencas.put(aluno.getCodigo(),new ArrayList<>());
+            this.presencas.get(aluno.getCodigo()).add(presenca);
+        }else {
+            this.presencas.get(aluno.getCodigo()).add(presenca);
+        }
+        this.diario.put(data, presencas);
     }
 
-    public void imprimeDiario(){
-        System.out.println(this.data);
-        for (Presenca p : presencas){
-            System.out.print(p.getAluno().getNome());
-            if(p.isPresenca()){
-                System.out.println(" presente");
+    public void imprime(){
+        List<Date> dates = new ArrayList<>(diario.keySet());
+          for (Date data: diario.keySet()){
+            if(dates.indexOf(data) == 0){
+                System.out.printf("%55s",DataUtil.dataFormatada(data));
             }else {
-                System.out.println(" ausente");
+                System.out.printf("%20s",DataUtil.dataFormatada(data));
+            }
+        }
+        System.out.println();
+        for (Aluno aluno: getAlunos().values()){
+            System.out.printf("%40s",aluno.getNome());
+            if(presencas.get(aluno.getCodigo()) != null){
+                for (String p :presencas.get(aluno.getCodigo())){
+                    System.out.printf("%15s",p);
+                }
             }
 
-
+            System.out.println();
         }
-    }
 
+
+    }
 }
