@@ -43,7 +43,7 @@ public class Diario {
             if(dates.indexOf(data) == 0){
                 System.out.printf("%55s",DataUtil.dataFormatada(data));
             }else {
-                System.out.printf("%20s",DataUtil.dataFormatada(data));
+                System.out.printf("%15s",DataUtil.dataFormatada(data));
             }
         }
         System.out.println();
@@ -51,10 +51,9 @@ public class Diario {
             System.out.printf("%40s",aluno.getNome());
             if(presencas.get(aluno.getCodigo()) != null){
                 for (String p :presencas.get(aluno.getCodigo())){
-                    System.out.printf("%15s",p);
+                    System.out.printf("%15s",p+"      ");
                 }
             }
-
             System.out.println();
         }
 

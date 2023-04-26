@@ -11,8 +11,10 @@ public class DataUtil {
         return sdf.format(data.getTime());
     }
 
-    public static Date hoje(){
-        return Calendar.getInstance().getTime();
+    public static Date dia(int dia){
+        Calendar data = Calendar.getInstance();
+        data.add(Calendar.DAY_OF_MONTH, dia);
+        return data.getTime();
 
     }
 
