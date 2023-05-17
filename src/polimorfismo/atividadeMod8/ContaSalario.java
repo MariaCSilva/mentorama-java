@@ -1,12 +1,11 @@
 package polimorfismo.atividadeMod8;
 
 public class ContaSalario extends Conta {
-    private int limiteSaque;
+    public static final int LIMITE_SAQUE = 4;
     private int quantidadeSaque;
 
-    public ContaSalario(int numero, int agencia, Banco banco, Cliente cliente, double saldo, int limiteSaque) {
+    public ContaSalario(int numero, int agencia, Banco banco, Cliente cliente, double saldo) {
         super(numero, agencia,banco,cliente, saldo );
-        this.limiteSaque = limiteSaque;
     }
 
     @Override
@@ -20,35 +19,28 @@ public class ContaSalario extends Conta {
             System.out.println("Saldo insuficiente!! ");
             return false;
         }else {
-            if(verificaQuantidaSaque()){
+            if(verificaQuantidadeSaque()){
                 this.saldo -=  valor;
                 quantidadeSaque++;
                 return true;
+            }else{
+                System.out.println("Saque não realizado! Você pode executar apenas "+quantidadeSaque+" saque(s)");
+                return false;
             }
         }
-        return false;
-    }
 
-    public int getLimiteSaque() {
-        return limiteSaque;
     }
-
-    public void setLimiteSaque(int limiteSaque) {
-        this.limiteSaque = limiteSaque;
-    }
-    private boolean verificaQuantidaSaque() {
-        if(quantidadeSaque < limiteSaque){
-            return true;
-        }else{
-            System.out.println("Saque não realizado! Você pode executar apenas "+quantidadeSaque+" saque(s)");
+    private boolean verificaQuantidadeSaque() {
+        if(quantidadeSaque > LIMITE_SAQUE){
             return false;
         }
+        return true;
     }
 
     @Override
     public String toString() {
         return "ContaSalario{" +
-                "limiteSaque=" + limiteSaque +
+                "limiteSaque=" + LIMITE_SAQUE +
                 '}';
     }
 }

@@ -4,6 +4,10 @@ public class Cliente {
     private int id;
     private String nome;
 
+    public Cliente(String nome) {
+        this.nome = nome;
+    }
+
     public int getId() {
         return id;
     }

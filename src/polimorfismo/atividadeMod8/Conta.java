@@ -55,4 +55,15 @@ public abstract class Conta {
         this.saldo = saldo;
     }
     abstract boolean sacar(double quantia);
+
+    @Override
+    public String toString() {
+        return "Conta{" +
+                "numero=" + numero +
+                ", agencia=" + agencia +
+                ", banco=" + banco.getNome() +
+                ", cliente=" + cliente.getNome() +
+                ", saldo=" + saldo +
+                '}';
+    }
 }

@@ -44,7 +44,7 @@ public class ContaCorrente extends Conta {
     }
     @Override
     public String toString() {
-        return "ContaCorrente{" +
+        return super.toString() + "ContaCorrente{" +
                 "chequeEspecial=" + chequeEspecial +
                 '}';
     }
