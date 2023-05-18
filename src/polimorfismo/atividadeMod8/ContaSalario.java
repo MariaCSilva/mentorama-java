@@ -1,6 +1,6 @@
 package polimorfismo.atividadeMod8;
 
-public class ContaSalario extends Conta {
+public class ContaSalario extends Conta implements Tributavel {
     public static final int LIMITE_SAQUE = 4;
     private int quantidadeSaque;
 
@@ -10,6 +10,7 @@ public class ContaSalario extends Conta {
 
     @Override
     public double getSaldo() {
+        this.saldo = saldo - saldo * getImposto();
         return this.saldo;
     }
 
@@ -42,5 +43,22 @@ public class ContaSalario extends Conta {
         return "ContaSalario{" +
                 "limiteSaque=" + LIMITE_SAQUE +
                 '}';
+    }
+
+    @Override
+    public double getImposto() {
+        if(getSaldo() > 4664.68){
+            return 27.5;
+        }else {
+            if(getSaldo() > 3751.05){
+                return 22.5;
+            }else{
+              if (getSaldo() >  2826.65){
+                  return 15.0;
+                }else {
+                  return 0.0;
+              }
+            }
+        }
     }
 }

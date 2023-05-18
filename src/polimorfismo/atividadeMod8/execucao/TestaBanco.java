@@ -14,6 +14,8 @@ public class TestaBanco {
        entrada.criarBanco(bancos);
        String nomeBanco = entrada.lerTexto("Informe o nome do banco: ");
        entrada.criarCliente(bancos,nomeBanco);
+       entrada.criarContaCorrente(bancos, nomeBanco);
        entrada.criarContaPoupanca(bancos, nomeBanco);
+        System.out.println(bancos.get(nomeBanco).getSaldoPorBanco());
     }
 }

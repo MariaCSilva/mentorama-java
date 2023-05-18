@@ -88,7 +88,6 @@ public class Entrada {
         int diaAniversario = getDiaAniversario() ;
         double taxajuros = lerReal("Informe a taxa de juros: ");
         int idCliente = lerInteiro("Informe o id do cliente: ");
-
         Cliente cliente = banco.getCliente(idCliente);
         ContaPoupanca cp = new ContaPoupanca(
                 numero,
@@ -122,12 +121,14 @@ public class Entrada {
     }
 
     public int getDiaAniversario(){
-        Calendar datas = new GregorianCalendar();
-        int quantidadeDias = datas.getActualMaximum (Calendar.DAY_OF_MONTH);
-        if((int) Math.floor(Math.random() * quantidadeDias) == 0){
-            return Calendar.DAY_OF_MONTH;
+        Calendar data = Calendar.getInstance();
+        data.set(Calendar.MONTH, data.get(Calendar.MONTH) );
+        int quantidadeDias = data.getActualMaximum(Calendar.DAY_OF_MONTH);
+        int dia= (int) Math.floor(Math.random() * quantidadeDias);
+        if(dia < 15){
+            return data.get(Calendar.DAY_OF_MONTH);
         }
-        return (int) Math.floor(Math.random() * quantidadeDias);
+        return dia;
     }
 
     public static boolean bancoExiste(Map<String, Banco> bancos, String nome){

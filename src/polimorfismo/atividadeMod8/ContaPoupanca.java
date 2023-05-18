@@ -8,6 +8,7 @@ public class ContaPoupanca extends Conta {
 
     public ContaPoupanca(int numero, int agencia, Banco banco, Cliente cliente, double saldo,int diaAniversario, double taxaJuros) {
         super(numero, agencia, banco, cliente, saldo);
+        this.diaAniversario = diaAniversario;
         this.taxaJuros = taxaJuros;
     }
     @Override
