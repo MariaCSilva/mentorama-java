@@ -68,7 +68,9 @@ public class Banco {
         return this.clienteMap.get(id);
     }
 
-    public void transferir(Conta origem, Conta destino){
-
+    public void transferir(Conta origem, Conta destino, double valor){
+        if(origem.sacar(valor)){
+            destino.depositar(valor);
+        }
     }
 }
