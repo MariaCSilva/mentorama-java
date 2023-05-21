@@ -49,10 +49,21 @@ public abstract class Conta {
     public void depositar(double valor) {
         this.saldo += valor;
     }
-    abstract double getSaldo();
+    public abstract double getSaldo();
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-    abstract boolean sacar(double quantia);
+    public abstract boolean sacar(double quantia);
+
+    @Override
+    public String toString() {
+        return "Conta{" +
+                "numero=" + numero +
+                ", agencia=" + agencia +
+                ", banco=" + banco.getNome() +
+                ", cliente=" + cliente.getNome() +
+                ", saldo=" + saldo +
+                '}';
+    }
 }

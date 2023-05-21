@@ -4,6 +4,10 @@ public class Cliente {
     private int id;
     private String nome;
 
+    public Cliente(String nome) {
+        this.nome = nome;
+    }
+
     public int getId() {
         return id;
     }
@@ -16,7 +20,12 @@ public class Cliente {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                '}';
     }
 }

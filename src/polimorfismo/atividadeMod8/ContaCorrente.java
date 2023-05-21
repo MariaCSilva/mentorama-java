@@ -1,6 +1,6 @@
 package polimorfismo.atividadeMod8;
 
-public class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta implements Tributavel {
     private ChequeEspecial chequeEspecial;
 
     public ContaCorrente(int numero, int agencia, Banco banco, Cliente cliente, double saldo, ChequeEspecial chequeEspecial) {
@@ -10,6 +10,7 @@ public class ContaCorrente extends Conta {
 
     @Override
     public double getSaldo() {
+        this.saldo = saldo - getImposto();
         if(chequeEspecial.isHabilitado()) {
             return this.chequeEspecial.getSaldoChequeEspecial() + this.saldo;
         }
@@ -31,7 +32,6 @@ public class ContaCorrente extends Conta {
 
     private boolean consomeChequeEspecial(double valor){
         if(valor > getLimiteSaque()){
-            System.out.println("Saque não efetuado! Saldo insuficiente.");
             return false;
         }else {
             this.saldo -= valor;
@@ -44,8 +44,18 @@ public class ContaCorrente extends Conta {
     }
     @Override
     public String toString() {
-        return "ContaCorrente{" +
+        return super.toString() + "ContaCorrente{" +
                 "chequeEspecial=" + chequeEspecial +
                 '}';
+    }
+
+    @Override
+    public double getImposto() {
+        if (this.saldo > 15000){
+            return 0.07 * this.saldo;
+        }else{
+            return 0.0 * this.saldo;
+        }
+
     }
 }

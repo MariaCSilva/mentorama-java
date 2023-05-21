@@ -1,4 +1,3 @@
-
 Criar um banco!
 
 Em um banco existem clientes que possuem vários tipos contas: tem que clientes que têm contas correntes e contas de poupança, outros não e assim por diante.
