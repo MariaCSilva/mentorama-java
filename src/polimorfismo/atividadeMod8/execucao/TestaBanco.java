@@ -1,27 +1,40 @@
 package polimorfismo.atividadeMod8.execucao;
 
-import polimorfismo.atividadeMod8.Banco;
-import polimorfismo.atividadeMod8.Conta;
+import polimorfismo.atividadeMod8.componentes.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import static polimorfismo.atividadeMod8.componentes.ConsoleColors.*;
+import static polimorfismo.atividadeMod8.componentes.Layout.imprimeLinha;
 
 public class TestaBanco {
-
-    static  Map<String, Banco> bancos = new HashMap<>();
+    static Entrada entrada = new Entrada();
+    static Menu menu = new Menu();
     public static void main(String[] args) {
-       Entrada entrada = new Entrada();
+        menu();
+    }
 
-       entrada.criarBanco(bancos);
-       String nomeBanco = entrada.lerTexto("Informe o nome do banco: ");
-       entrada.criarCliente(bancos,nomeBanco);
-       entrada.criarContaCorrente(bancos, nomeBanco);
-       entrada.criarContaPoupanca(bancos, nomeBanco);
-        Conta o =  bancos.get(nomeBanco).getConta(12);
-        Conta d = bancos.get(nomeBanco).getConta(13);
-        bancos.get(nomeBanco).transferir(o,d,10.0);
-        System.out.println(o);
-        System.out.println(d);
-        System.out.println(bancos.get(nomeBanco).getSaldoPorBanco());
+    public static  void menu(){
+        menu.adicionaOpcao(new CadastrarBanco());
+        menu.adicionaOpcao(new ListarBancos());
+        menu.adicionaOpcao(new CadastrarCliente());
+        menu.adicionaOpcao(new ListarClientes());
+        menu.adicionaOpcao(new NovaContaCorrente());
+        menu.adicionaOpcao(new NovaContaPoupanca());
+        menu.adicionaOpcao(new NovaContaSalario());
+        menu.adicionaOpcao(new NovoDepositoConta());
+        menu.adicionaOpcao(new NovoSaqueConta());
+        menu.adicionaOpcao(new NovaTransferencia());
+        menu.adicionaOpcao(new NovaConsultaSaldoConta());
+        menu.adicionaOpcao(new NovaConsultaSaldoBanco());
+        int opcao;
+        do {
+            imprimeLinha();
+            imprimeLinha(BLUE, "menu");
+            imprimeLinha();
+            menu.exibeOpcoes();
+            imprimeLinha();
+            opcao = entrada.lerInteiro("Informe a opção desejada: ");
+            imprimeLinha();
+           menu.executa(opcao);
+        }while (opcao != 0);
     }
 }

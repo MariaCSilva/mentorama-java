@@ -10,7 +10,7 @@ public class ContaCorrente extends Conta implements Tributavel {
 
     @Override
     public double getSaldo() {
-        this.saldo = saldo - saldo * getImposto();
+        this.saldo = saldo - getImposto();
         if(chequeEspecial.isHabilitado()) {
             return this.chequeEspecial.getSaldoChequeEspecial() + this.saldo;
         }
@@ -32,7 +32,6 @@ public class ContaCorrente extends Conta implements Tributavel {
 
     private boolean consomeChequeEspecial(double valor){
         if(valor > getLimiteSaque()){
-            System.out.println("Saque não efetuado! Saldo insuficiente.");
             return false;
         }else {
             this.saldo -= valor;
@@ -53,9 +52,9 @@ public class ContaCorrente extends Conta implements Tributavel {
     @Override
     public double getImposto() {
         if (this.saldo > 15000){
-            return 0.38;
+            return 0.07 * this.saldo;
         }else{
-            return 0.0;
+            return 0.0 * this.saldo;
         }
 
     }

@@ -13,7 +13,7 @@ public class ContaPoupanca extends Conta {
     }
     @Override
     public double getSaldo() {
-        if(Calendar.DAY_OF_MONTH == diaAniversario){
+        if(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == diaAniversario){
             return this.saldo + this.taxaJuros * this.saldo;
         }else {
             return this.saldo;

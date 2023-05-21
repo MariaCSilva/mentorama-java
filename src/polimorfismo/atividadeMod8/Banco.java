@@ -20,15 +20,6 @@ public class Banco {
         return nome;
     }
 
-    public List<Conta> getContasPorCliente(int idCliente) {
-        List<Conta> contas = new ArrayList<>();
-        for (Map.Entry<Integer,Conta> contaEntry : contaMap.entrySet()){
-            if(contaEntry.getValue().getCliente().getId() == idCliente){
-                contas.add(contaEntry.getValue());
-            }
-        }
-        return contas;
-    }
     public List<Conta> getContaList() {
         List<Conta> contas = new ArrayList<>();
         for (Map.Entry<Integer,Conta> contaEntry : contaMap.entrySet()){
@@ -68,9 +59,18 @@ public class Banco {
         return this.clienteMap.get(id);
     }
 
-    public void transferir(Conta origem, Conta destino, double valor){
+    public boolean transferir(Conta origem, Conta destino, double valor){
         if(origem.sacar(valor)){
             destino.depositar(valor);
+            return true;
         }
+        return false;
+    }
+
+    public boolean temConta(int numero){
+        return contaMap.get(numero) != null;
+    }
+    public boolean temCliente(int id){
+        return clienteMap.get(id) != null;
     }
 }

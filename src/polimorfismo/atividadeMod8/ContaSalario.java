@@ -10,14 +10,12 @@ public class ContaSalario extends Conta implements Tributavel {
 
     @Override
     public double getSaldo() {
-        this.saldo = saldo - saldo * getImposto();
-        return this.saldo;
+        return this.saldo - getImposto();
     }
 
     @Override
     public boolean sacar(double valor) {
-        if(valor <= getSaldo()){
-            System.out.println("Saldo insuficiente!! ");
+        if(valor > getSaldo()){
             return false;
         }else {
             if(verificaQuantidadeSaque()){
@@ -25,17 +23,13 @@ public class ContaSalario extends Conta implements Tributavel {
                 quantidadeSaque++;
                 return true;
             }else{
-                System.out.println("Saque não realizado! Você pode executar apenas "+quantidadeSaque+" saque(s)");
                 return false;
             }
         }
 
     }
     private boolean verificaQuantidadeSaque() {
-        if(quantidadeSaque > LIMITE_SAQUE){
-            return false;
-        }
-        return true;
+        return quantidadeSaque <= LIMITE_SAQUE;
     }
 
     @Override
@@ -47,18 +41,10 @@ public class ContaSalario extends Conta implements Tributavel {
 
     @Override
     public double getImposto() {
-        if(getSaldo() > 4664.68){
-            return 27.5;
+        if(this.saldo > 4664.68){
+            return this.saldo * 0.07 ;
         }else {
-            if(getSaldo() > 3751.05){
-                return 22.5;
-            }else{
-              if (getSaldo() >  2826.65){
-                  return 15.0;
-                }else {
-                  return 0.0;
-              }
-            }
+            return 0.05 * this.saldo;
         }
     }
 }

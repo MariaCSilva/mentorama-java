@@ -17,12 +17,7 @@ public class ContaSalario extends Conta {
 
     @Override
     public void sacar(double valor) {
-        if(quantidadeSaque < limiteSaque){
-            this.saldo -=  valor;
-            quantidadeSaque++;
-        }else{
-            System.out.println("Saque não realizado! Você pode executar apenas "+quantidadeSaque+" saque(s)");
-        }
+
     }
 
     public int getLimiteSaque() {
