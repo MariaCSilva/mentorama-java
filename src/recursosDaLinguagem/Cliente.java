@@ -27,12 +27,9 @@ private String senha;
 
     @Override
     public String toString() {
-        return "Cliente{" +
+        return "Cliente: " +
                 "nome='" + nome + '\'' +
-                ", status=" + status +
-                ", compras=" + compras +
-                ", senha='" + senha + '\'' +
-                '}';
+                ", compras=" + compras ;
     }
 
     @Override
